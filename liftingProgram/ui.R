@@ -13,21 +13,35 @@ library(shiny)
 shinyUI(fluidPage(
   
   # Application title
-  titlePanel("Old Faithful Geyser Data"),
+  titlePanel("Major lifts, 1RM values"),
   
   # Sidebar with a slider input for number of bins 
   sidebarLayout(
     sidebarPanel(
-       sliderInput("bins",
-                   "Number of bins:",
-                   min = 1,
-                   max = 50,
-                   value = 30)
+      radioButtons("program",
+                   "Program", 
+                   choices = c("Verkhoshansky", "5/3/1 BBB"),
+                   selected = "Verkhoshansky", 
+                   inline = TRUE),
+      numericInput("bench", 
+                   "Bench",
+                   210),
+      numericInput("ohp", 
+                   "Overhead Press",
+                   145),
+      numericInput("squat", 
+                   "Squat",
+                   265),
+      numericInput("deadlift", 
+                   "Deadlift",
+                   310), 
+      # Button
+      downloadButton("downloadData", "Download program")
     ),
     
-    # Show a plot of the generated distribution
+    # Main panel for displaying outputs ----
     mainPanel(
-       plotOutput("distPlot")
-    )
+        tableOutput("table")
+      )
   )
 ))
