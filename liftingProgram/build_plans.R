@@ -48,7 +48,7 @@ build_verk <- function(lift, lift_weight){
                                   .45,.55,.65,.75,.85,.90,.95,1,1.02,1.05))
   x %>%
     mutate(weight = weight_prop * lift_weight, 
-           weight = round(weight/5) * 5,
+           weight = (round(weight/5) * 5) %>% as.integer(),
            lift = lift) %>%
     select(-weight_prop)
 
@@ -81,7 +81,7 @@ build_531 <- function(lift, lift_weight){
   
   x %>%
     mutate(weight = weight_prop * (lift_weight*.90), 
-           weight = round(weight/5) * 5,
+           weight = (round(weight/5) * 5) %>% as.integer(),
            lift = lift) %>%
        select(-weight_prop)
                            
