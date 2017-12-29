@@ -73,9 +73,9 @@ build_531 <- function(lift, lift_weight){
                   weight_prop = c(.65,.75,.85,
                                   rep(.5, 5),
                                   .70,.80,.90,
-                                  rep(.6, 5),
+                                  rep(.5, 5),
                                   .75,.85,.95,
-                                  rep(.7, 5),
+                                  rep(.5, 5),
                                   .40,.50,.60, 
                                   rep(.5, 5)))
   
