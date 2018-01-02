@@ -83,7 +83,7 @@ build_531 <- function(lift, lift_weight){
     mutate(weight = weight_prop * (lift_weight*.90), 
            weight = (round(weight/5) * 5) %>% as.integer(),
            lift = lift) %>%
-       select(-weight_prop)
+    select(-weight_prop)
                            
   
 }

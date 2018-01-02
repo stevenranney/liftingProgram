@@ -20,12 +20,14 @@ shinyServer(function(input, output) {
              build_verk("bench", input$bench) %>%
               bind_rows(build_verk("ohp", input$ohp)) %>%
               bind_rows(build_verk("deadlift", input$deadlift)) %>%
-              bind_rows(build_verk("squat", input$squat)),
+              bind_rows(build_verk("squat", input$squat)) %>%
+             arrange(week, day),
            "5/3/1 BBB" = 
              build_531("bench", input$bench) %>%
               bind_rows(build_531("ohp", input$ohp)) %>%
               bind_rows(build_531("deadlift", input$deadlift)) %>%
-              bind_rows(build_531("squat", input$squat)))
+              bind_rows(build_531("squat", input$squat))%>%
+             arrange(week, day))
   })
   
   # Table of selected dataset ----
